@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Temperature</title>
-    </head>
+<head>
+    <title>Temperature</title>
 
-    <body>
-        <h1>Add Temperature</h1>
+</head>
 
-        <form id="category_form" method="post" action="/weather/temper_form/">
+<body>
+<h1>Add Temperature</h1>
+<form id="temper_form" action="" method="post">{% csrf_token %}
+{#<form id="category_form" method="post" action="/weather/temper_form/">#}
 
-            {% csrf_token %}
-            {% for hidden in form.hidden_fields %}
-                {{ hidden }}
-            {% endfor %}
+ <!--<form action="/action_page.html"> !-->
 
-            {% for field in form.visible_fields %}
-                {{ field.errors }}
-                {{ field.help_text }}
-                {{ field }}
-            {% endfor %}
+{#  <fieldset>#}
+{#    <legend>Weather information:</legend>#}
+{#    Date:<br>#}
+{#    <input type="datetime" name="date" value=""><br>#}
+{#    Sensor1 Temperature:<br>#}
+{#    <input type="text" name="lastname" value=""><br><br>#}
+{#      Sensor2 Temperature:<br>#}
+{#    <input type="text" name="lastname" value=""><br><br>#}
+{#      Sensor3 Temperature:<br>#}
+{#    <input type="text" name="lastname" value=""><br><br>#}
+{#      Sensor4 Temperature:<br>#}
+{#    <input type="text" name="lastname" value=""><br><br>#}
+{#    <input type="submit" value="Input Temperature">#}
+{#  </fieldset>#}
 
-            <input type="submit" name="submit" value="Input Temperature" />
-        </form>
-    </body>
+    {{ form.as_p }}
+
+
+    <input type="submit" value="Input Temperature" />
+</form>
+
+</body>
 
 </html>

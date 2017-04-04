@@ -10,6 +10,6 @@ class Temper(models.Model):
     sensor4_temp = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.date
+        return str(self.date)
 
 

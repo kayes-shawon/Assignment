@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+			  src="https://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+<script>
+    $.ajax({
+        'url': 'http://127.0.0.1:8000/weather/points',
+        'method': 'GET',
+        'success': function(data){
+            alert(data);
+        }
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,6 +1,9 @@
 from django.conf.urls import url
-from django.views.generic import TemplateView
-
+from . import views
+from .views import TempView
 urlpatterns = [
-    url(r'^temper_form/$', TemplateView.as_view(template_name="temper_form.html")),
+    url(r'^temper_form/$', TempView.as_view(), name="inputform"),
+    url(r'^points/$', views.get_temperature_ajax),
+    url(r'^index/$', views.index)
+
 ]
