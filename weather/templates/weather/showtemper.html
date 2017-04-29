@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Datechart</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+
+</head>
+<body>
+
+<canvas id="myChart"></canvas>
+<script language="JavaScript"><!--
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+{#        labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],#}
+
+        labels:[{% for d in data %} "{{ d.date }}", {% endfor %}],
+        datasets: [{
+            label: 'Sensor 1',
+{#            data: [12, 19, 3, 17, 6, 3, 7],#}
+            data: [{% for temp in data %} "{{ temp.sensor1_temp }}", {% endfor %}],
+            backgroundColor: "rgba(153,255,51,0.4)"
+        }, {
+            label: 'Sensor 2',
+            data: [{% for temp in data %} "{{ temp.sensor2_temp }}", {% endfor %}],
+            backgroundColor: "rgba(255,153,0,0.4)"
+        },
+        {
+            label: 'Sensor 3',
+            data: [{% for temp in data %} "{{ temp.sensor3_temp }}", {% endfor %}],
+            backgroundColor: "rgba(0,0,255,0.4)"
+        },
+        {
+            label: 'Sensor 4',
+            data: [{% for temp in data %} "{{ temp.sensor4_temp }}", {% endfor %}],
+            backgroundColor: "rgba(255,0,0,0.4)"
+        }]
+    }
+});
+
+--></script>
+</body>
+</html>
